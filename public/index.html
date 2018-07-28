@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Socket.io Messages</title>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    #name{
+        margin-bottom: 1em;
+    }
+    #userlogin{
+      background: #afaffc;
+  }
+  #userlogin h3{
+    background: #8383db;
+    margin-top: -18px;
+}
+#messages{
+    list-style: none;
+}
+#message{
+    width: 80%;
+}
+#sendMessage{
+    width: 20%;
+    height: 3.3em;
+}
+#userlist{
+    width: 74%;
+    border: 1px solid;
+    list-style: none;
+}
+.online{
+    background: green;
+}
+#userlist-container
+{
+    position: absolute;
+    width: 18em;
+    left: -14em;
+}
+#submitUserData{
+    margin-left: 56em;
+    margin-top: 1em;
+}
+</style>
+    </head>
+    <body>
+        <div class="col-lg-8 col-offset-2" id="userlogin-popup">
+                <form id="userlogin" class="well row">
+                        <h3>Enter Chat</h3>
+                        <input type="text" placeholder="Name" id="name" name="name" class="col-lg-12" required/>
+                        <input type="text" placeholder="NickName" id="nickname" name="nickname" class="col-lg-12" required />
+                        <input type="submit" id="submitUserData" value="OK" />
+                    </form>
+        </div>
+        <div id="userlist-container" class="col-lg-8 col-offset-2">
+                <label for="userlist">User List</label>
+                <ul id="userlist" class="list-group">
+                </ul>
+        </div>
+        <div class="col-lg-8 col-offset-2 row">
+            <ul id="messages" class="list-group">
+            </ul>
+        </div>
+        <form id="create-message" class="well row">
+                <fieldset class="col-lg-8 col-offset-2">
+                    <legend>Chat</legend>
+                     <textarea placeholder="Message" id="message" name="message" class="col-lg-12"></textarea>
+                    <input type="submit" id="sendMessage" value="Send" class="btn btn-default col-lg-12" /> 
+                </fieldset>
+            </form>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script type="text/javascript" src="/js/app.js"></script>
+ <script type="text/javascript">
+            $("#submitUserData").click(function(){
+    $("#userlogin-popup").css("display", "none");
+  });
+        </script>
+    </body>
+</html>
